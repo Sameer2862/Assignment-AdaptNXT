@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidenav from "./Components/Sidenav";
+import React from "react";
+import {Routes,Route,BrowserRouter} from 'react-router-dom'; 
+import Dashboard from "./Pages/Dashboard";
+import Inventory from "./Pages/Inventory";
+import Order from "./Pages/Orders";
+import Shipping from './Pages/Shipping';
+import Channel from './Pages/Channel';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Dashboard/>}/>
+        <Route path="/inventory" exact element={<Inventory/>}/>
+        <Route path="/order" exact element={<Order/>}/>
+        <Route path="/shipping" exact element={<Shipping/>}/>
+        <Route path="/channel" exact element={<Channel/>}/>
+      </Routes>
+    </BrowserRouter>
+    
+    </>
   );
 }
 
